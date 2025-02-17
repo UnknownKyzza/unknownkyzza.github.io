@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Account Details</title>
+    <style>
+        body {
+            font-family: Poppins, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            padding: 0 15px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+        .field {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #fff;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .copied {
+            background: #6c757d !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Account Details</h2>
+        <div class="field">
+            <span>Example Account Name</span>
+            <button onclick="copyToClipboard(this, 'Example Account Name')">Copy</button>
+        </div>
+        <div class="field">
+            <span>BSB: 000000</span>
+            <button onclick="copyToClipboard(this, '000000')">Copy</button>
+        </div>
+        <div class="field">
+            <span>Account Number: 000000</span>
+            <button onclick="copyToClipboard(this, '000000')">Copy</button>
+        </div>
+    </div>
+    <script>
+        function copyToClipboard(button, text) {
+            navigator.clipboard.writeText(text).then(() => {
+                document.querySelectorAll('button').forEach(btn => {
+                    btn.textContent = 'Copy';
+                    btn.classList.remove('copied');
+                });
+                button.textContent = 'Copied';
+                button.classList.add('copied');
+            });
+        }
+    </script>
+</body>
+</html>
